@@ -1,0 +1,12 @@
+"strike_team"
+{
+	"base"		"sandbox"
+	"title"		"Strike Team"
+	"maps"		"^st_"
+	"menusystem"	"1"
+
+	"settings"
+	{
+		
+	}
+}
