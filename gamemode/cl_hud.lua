@@ -6,13 +6,13 @@ include( "shared.lua" )
 surface.CreateFont("HUDFont", {
 	font = "DermaDefault",
 	outline = true,
-	size = 50
+	size = 40
 })
 
 surface.CreateFont("BIGAMMO", {
 	font = "DermaDefault",
 	outline = true,
-	size = 60
+	size = 50
 })
 
 local hide = {
@@ -43,10 +43,17 @@ hook.Add("HUDPaint", "HUDHOOK", function()
 
 			draw.DrawText("HP: " .. LocalPlayer():Health(), "HUDFont", 10, surface.ScreenHeight() / 1.25, Color(255,255,255,255), TEXT_ALIGN_LEFT)
 			draw.DrawText("ARMOR: " .. LocalPlayer():Armor(), "HUDFont", 10, surface.ScreenHeight() / 1.18, Color(255,255,255,255), TEXT_ALIGN_LEFT)
-				
-			if (LocalPlayer():GetActiveWeapon():Clip1() > -1) then
+			draw.DrawText("BARRICADES: " .. LocalPlayer():Armor(), "HUDFont", 10, surface.ScreenHeight() / 1.115, Color(255,255,255,255), TEXT_ALIGN_LEFT)	
 
-				draw.DrawText( LocalPlayer():GetActiveWeapon():Clip1() .. " / " .. LocalPlayer():GetAmmoCount(LocalPlayer():GetActiveWeapon():GetPrimaryAmmoType()), "BIGAMMO", surface.ScreenWidth() - 235, surface.ScreenHeight() / 1.2, Color(255,255,255,255), TEXT_ALIGN_LEFT)
+			if (IsValid(LocalPlayer():GetActiveWeapon())) then
+
+				if (LocalPlayer():GetActiveWeapon():Clip1() > -1) then
+
+					draw.DrawText( LocalPlayer():GetActiveWeapon():Clip1() .. " / " .. LocalPlayer():GetAmmoCount(LocalPlayer():GetActiveWeapon():GetPrimaryAmmoType()), "BIGAMMO", surface.ScreenWidth() - 235, surface.ScreenHeight() / 1.2, Color(255,255,255,255), TEXT_ALIGN_LEFT)
+
+					draw.DrawText( LocalPlayer():GetActiveWeapon():GetPrintName(), "HUDFont", surface.ScreenWidth() - 235, surface.ScreenHeight() / 1.12, Color(255,255,255,255), TEXT_ALIGN_LEFT)
+
+				end
 
 			end
 

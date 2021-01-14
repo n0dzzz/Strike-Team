@@ -26,13 +26,13 @@ include( "sv_level.lua" )
 
 -------------------------- Setup
 
-print("Strike Team Game Started on " .. util.DateStamp())
+print("[ " .. util.DateStamp() .. " ] " .. "Strike Team Game Started on map " .. game.GetMap())
 
 timer.Create("Annoucments", 200, 1, function()
 
-    print( "Wessslcome to Strike Team still in Development" )
-    print( "More on the Website: striketeam.github.io" )
+    print( "Welcome to Strike Team still in Development" )
+    print( "More on the Website:  grandmasocks.github.io/Strike-Team-Website/" )
 
-end) 
+end)
 
 ------------------------- Start Funcs 
